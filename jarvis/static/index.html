@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jarvis — AI Assistant</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Left panel: status / controls -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="core"></div>
+        <div class="brand-name">JARVIS</div>
+        <div class="brand-sub">AI Personal Assistant</div>
+      </div>
+
+      <div class="status-card">
+        <div class="status-row"><span>Brain</span><b id="stat-brain">—</b></div>
+        <div class="status-row"><span>Voice</span><b id="stat-voice">—</b></div>
+        <div class="status-row"><span>Phone</span><b id="stat-phone">—</b></div>
+        <div class="status-row"><span>Control</span><b id="stat-control">—</b></div>
+      </div>
+
+      <div class="action-buttons">
+        <button id="btn-status" class="btn">🖥️ System Status</button>
+      </div>
+
+      <div class="hint">
+        <p>Say <i>"call my phone"</i>, <i>"check system status"</i>, or ask anything.</p>
+      </div>
+    </aside>
+
+    <!-- Main conversation -->
+    <main class="chat">
+      <header class="chat-head">
+        <div class="head-status">
+          <span class="pulse" id="pulse-dot"></span>
+          <span id="listen-state">Listening</span>
+        </div>
+        <div class="mic-btn-wrap">
+          <button id="mic-btn" class="mic" title="Press to talk">
+            <svg viewBox="0 0 24 24" width="26" height="26">
+              <path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"/>
+            </svg>
+          </button>
+          <button id="txt-btn" class="txt" title="Type instead">✎</button>
+        </div>
+      </header>
+
+      <div class="messages" id="messages">
+        <div class="msg jarvis">
+          <div class="avatar">J</div>
+          <div class="bubble">
+            Good day, sir. I am Jarvis, your personal AI assistant. Press the
+            microphone and speak, or type your request below.
+          </div>
+        </div>
+      </div>
+
+      <footer class="input-row">
+        <input id="text-input" type="text" placeholder="Type your command for Jarvis..." autocomplete="off" />
+        <button id="send-btn" class="send">Send</button>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Confirmation modal for actions -->
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal">
+      <h3 id="modal-title">Confirm Action</h3>
+      <p id="modal-text"></p>
+      <div id="modal-pin-row" class="pin-row" hidden>
+        <input id="modal-pin" type="password" placeholder="Admin PIN" />
+      </div>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="btn ghost">Cancel</button>
+        <button id="modal-ok" class="btn primary">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="tts-audio" hidden></audio>
+  <script src="/app.js"></script>
+</body>
+</html>
