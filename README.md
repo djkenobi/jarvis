@@ -166,6 +166,20 @@ To change the login password later, use the helper (it also restarts the service
 
 ---
 
+## Checking / diagnosing the deployment
+
+Run the diagnostic script anytime to see whether Jarvis is up, listening on 443,
+and reachable over HTTPS — it checks ports, services, config, DNS, and
+reachability in one go:
+
+```bash
+./status.sh             # quick summary
+./status.sh --verbose   # include raw output
+DOMAIN=jarvis.example.com ./status.sh   # override domain
+```
+
+It flags problems as `[XX]` (fix these) and `[!!]` (review).
+
 ## Testing (before/after deployment)
 
 Run the full test harness (uses the mock brain, so no Ollama needed):
@@ -273,6 +287,7 @@ jarvis/
 ├── .env.example         # config template
 ├── install.sh           # one-shot Ubuntu installer
 ├── set_password.sh      # change the login password
+├── status.sh            # diagnostic / health check
 ├── test.sh              # test harness
 └── README.md
 ```
