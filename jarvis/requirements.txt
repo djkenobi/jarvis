@@ -1,8 +1,0 @@
-fastapi>=0.110
-uvicorn[standard]>=0.29
-python-dotenv>=1.0
-pydantic>=2.6
-edge-tts>=6.1
-twilio>=9.0
-# Used only by the test client (tests/test_app.py):
-httpx2>=0.2
